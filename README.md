@@ -37,6 +37,7 @@ Add entry to [root-of-laravel]/config/mail.php:
             'access_key'            => env('AZURE_MAIL_KEY'),
             'api_version'           => env('AZURE_MAIL_API_VERSION', '2023-03-31'),
             'disable_user_tracking' => env('AZURE_MAIL_DISABLE_TRACKING', false),
+            'sender_address'        => env('AZURE_MAIL_SENDER_ADDRES', 'donotreply@azure.com')
         ],
     ]
 
@@ -51,12 +52,12 @@ Add entry to [root-of-laravel]/.env:
   # Mail service entries... 
   MAIL_MAILER=azure
   
+  #=================================================
   # Azure Service entries
+  #=================================================
   AZURE_MAIL_RESOURCE_NAME=my-acs-resource-name
-  # AZURE_MAIL_ENDPOINT= #optional
   AZURE_MAIL_KEY=AzureAccessToken
-  # AZURE_MAIL_API_VERSION=2023-03-31 #optional
-  # AZURE_MAIL_DISABLE_TRACKING=false #optional
+  AZURE_MAIL_SENDER_ADDRES
   
 ```
 ## Documentation
