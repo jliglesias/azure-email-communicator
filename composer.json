@@ -10,7 +10,8 @@
     "require": {
         "php": ">=8.2",
         "laravel/framework": "^10.0",
-        "symfony/mailer": "^6.4"
+        "symfony/mailer": "^6.4",
+        "symfony/http-client"
     },
     "authors": [
         {
