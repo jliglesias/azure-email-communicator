@@ -7,12 +7,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "keywords": ["azure", "php", "azure communication service", "microsoft", "email", "driver", "mailer", "laravel", "symfony"],
-    "require": {
-        "php": ">=7.4",
-        "laravel/framework": "^10.0",
-        "symfony/mailer": "^6.4",
-        "symfony/http-client": "*"
-    },
     "authors": [
         {
             "name": "Juan Luis Iglesias",
