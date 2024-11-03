@@ -21,11 +21,11 @@ class MailerServiceProvider extends ServiceProvider
     public function register(): void
     {
         \App::register(Providers\AzureMailerServiceProvider::class);
-        \Event::subscribe(EventListeners\AjaxEmailEventSubscriber::class);
+        // \Event::subscribe(EventListeners\AjaxEmailEventSubscriber::class);
 
-        \Route::group(['middleware' => ['web', 'auth']] , function(){
-            \Route::get('/send-mail', [Http\Controllers\AjaxMailController::class, 'sendMail']);
-        });
+        // \Route::group(['middleware' => ['web', 'auth']] , function(){
+        //     \Route::get('/send-mail', [Http\Controllers\AjaxMailController::class, 'sendMail']);
+        // });
     }
     
     /**

@@ -37,6 +37,7 @@ class AzureMailerTransport extends AbstractTransport
         $this->resource_name = config('mail.mailers.azure.resource_name');
         $this->key = config('mail.mailers.azure.access_key');
         $this->api_version= config('mail.mailers.azure.api_version');
+        $this->sender_address = config('mail.mailers.azure.sender_address');
         $this->disableTracking = config('mail.mailers.azure.disable_user_tracking');
         $this->endpoint = 'https://'.$this->getEndpoint().'/emails:send?api-version='.$this->api_version;
         $this->client = HttpClient::create();
@@ -99,7 +100,7 @@ class AzureMailerTransport extends AbstractTransport
             'recipients' => [
                 'to' => array_map($addressStringifier, $this->getRecipients($email, $envelope)),
             ],
-            'senderAddress' => $envelope->getSender()->getAddress(),
+            'senderAddress' => $this->senderAddress(),
             'attachments' => $this->getMessageAttachments($email),
             'userEngagementTrackingDisabled' => $this->disableTracking,
             'headers' => empty($headers = $this->getMessageCustomHeaders($email)) ? null : $headers,
@@ -119,6 +120,11 @@ class AzureMailerTransport extends AbstractTransport
         }
 
         return $data;
+    }
+
+    protected function senderAddress()
+    {
+        return $this->sender_address;
     }
 
     /**
